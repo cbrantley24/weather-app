@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-cloak>
+    <head>
+        <!-- Meta Data -->
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <title>Weather Application</title>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css" type='text/css' media='all' />
+        <link rel='stylesheet' href='./asset/css/style.css' type='text/css' media='all' />
+        <!-- Initialize jQuery & AngularJS -->
+        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-animate.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.3/ng-csv.min.js"></script>
+        <base href="/projects/outpost/">
+    </head>
+    <body ng-controller="mainCtrl">
+        <!-- Header -->
+        <header>
+            <div class="row">
+                <h3><a href="/projects/outpost/#/"><i class="fa fa-cloud"></i> Weather API</a></h3>
+            </div>
+        </header>
+        <!-- Search -->
+        <div class="searchBox row">
+            <div class="large-9 columns">
+                <input type="search" class="location" ng-model="location" ng-enter="searchLoc(location)" placeholder="Search city...">
+            </div>
+            <div class="large-3 columns">
+                <button class="button" ng-click="searchLoc(location)"><i class="fa fa-search fa-lg"></i></button>
+            </div>
+        </div>
+        <!-- Main -->
+        <main class="view row" ng-view></main>
+        <!-- Javascript code -->
+        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.5/js/foundation.min.js'></script>
+        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.tooltip.js'></script>
+        <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.dropdown.js'></script>
+        <script type='text/javascript' src='//code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
+        <!-- Initialize Application -->
+        <script type='text/javascript' src='/projects/outpost/app/app.modules.js'></script>
+        <script type='text/javascript' src='/projects/outpost/app/app.routes.js'></script>
+        <script type='text/javascript' src='/projects/outpost/app/app.services.js'></script>
+    </body>
+</html>

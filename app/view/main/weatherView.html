@@ -1,0 +1,30 @@
+<!-- Loading -->
+<div class="weatherBox" ng-init="getWeather()" id="loading">
+	<div class="weatherSlide">
+		<i class="fa fa-refresh fa-spin fa-3x"></i>
+	</div>
+</div>
+<!-- Results -->
+<div class="weatherBox" ng-show="weather != ''">
+	<!-- Current Weather -->
+	<div class="weatherSlide">
+		<img ng-src="{{weather.current_observation.icon_url}}">
+		<h3>{{weather.current_observation.display_location.full}}</h3>
+		<h5>{{weather.current_observation.weather}} - {{weather.current_observation.temperature_string}}</h5>
+	</div>
+	<!-- Forecast -->
+	<div class="weatherForecast">
+		<div class="row">
+			<div class="large-3 columns" ng-repeat="day in forecastDays track by $index">
+				<div class="forecastBox">
+					<img ng-src="{{weather.upcoming.forecast.simpleforecast.forecastday[$index].icon_url}}">
+					<h5>{{weather.upcoming.forecast.simpleforecast.forecastday[$index].date.weekday}} {{weather.upcoming.forecast.simpleforecast.forecastday[$index].date.month}}/{{weather.upcoming.forecast.simpleforecast.forecastday[$index].date.day}}</h5>
+					<h6><span class="high">{{weather.upcoming.forecast.simpleforecast.forecastday[$index].high.fahrenheit + "&deg;"}}</span> | <span class="low">{{weather.upcoming.forecast.simpleforecast.forecastday[$index].low.fahrenheit + "&deg;"}}</span></h6>
+					<h6>{{weather.upcoming.forecast.simpleforecast.forecastday[$index].conditions}}</h6>
+				</div>
+			</div>
+		</div>
+		<a ng-href="{{weather.current_observation.forecast_url}}" target="_blank">Full Weather Report</a>
+	</div>
+	<small>{{weather.current_observation.observation_time}}</small>
+</div>
